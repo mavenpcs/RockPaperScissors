@@ -43,14 +43,14 @@ function computerPlay () {
       compsPlay = "scissors";
       break;      
   }
-  console.log("Computer selected: " + compsPlay);
+  console.log(`Computer selected: ${compsPlay}`);
   return compsPlay;
 }
 
 function playRound (playerSelection, computerSelection) {
   
   if (playerSelection === computerSelection) {
-    var result = "It's a tie!";
+    var result = "It's a draw!";
   }
   else if (playerSelection !== computerSelection) {
     if (playerSelection === "rock" && computerSelection === "scissors") {
@@ -80,7 +80,7 @@ function game () {
   let round = 0;
   let playerWin = 0;
   let computerWin = 0;
-  let tie = 0;
+  let draw = 0;
   
   while (round < 5) {
     let gameResult = playRound(playerPlay(), computerPlay());
@@ -91,21 +91,21 @@ function game () {
     else if (gameResult.includes("lose")) {
       computerWin++;
     }
-    else if (gameResult.includes("tie")) {
-      tie++;
+    else if (gameResult.includes("draw")) {
+      draw++;
     }
     round++;
   }
   let finalResult = playerWin - computerWin;
   
   if (finalResult > 0) {
-    console.log("Player wins! " + playerWin + "W/" + computerWin + "L/" + tie + "D");
+    console.log(`Player wins! ${playerWin}W/${computerWin}L/${draw}D`);
   }
   else if (finalResult < 0) {
-    console.log("Computer wins! " + playerWin + "W/" + computerWin + "L/" + tie + "D");
+    console.log(`Computer wins! ${playerWin}W/${computerWin}L/${draw}D`);
   }
   else if (finalResult == 0) {
-    console.log("Draw! " + computerWin + "W/" + playerWin + "L/" + tie + "D");
+    console.log(`Draw! ${computerWin}W/${playerWin}L/${draw}D`);
   }
 }
 
