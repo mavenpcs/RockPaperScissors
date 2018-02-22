@@ -43,11 +43,12 @@ function computerPlay () {
       compsPlay = "scissors";
       break;      
   }
+  console.log("Computer selected: " + compsPlay);
   return compsPlay;
 }
 
 function playRound (playerSelection, computerSelection) {
-  console.log("Computer selected: " + computerSelection); 
+  
   if (playerSelection === computerSelection) {
     var result = "It's a tie!";
   }
@@ -103,7 +104,7 @@ function game () {
   else if (finalResult < 0) {
     console.log("Computer wins! " + playerWin + "W/" + computerWin + "L/" + tie + "D");
   }
-  else {
+  else if (finalResult == 0) {
     console.log("Draw! " + computerWin + "W/" + playerWin + "L/" + tie + "D");
   }
 }
